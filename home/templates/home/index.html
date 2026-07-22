@@ -45,7 +45,7 @@ https://templatemo.com/tm-551-stand-blog
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href=""><h2>Stand Blog<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -70,7 +70,10 @@ https://templatemo.com/tm-551-stand-blog
               </li>
               <li class="nav-item">
                 {% if request.user.is_authenticated %}
-                  <a class="nav-link text-primary" href="">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                  <a class="nav-link text-primary" href="" >{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                    <li class="nav-item">
+                        <a href=""><img style="height: 60px; width: 60px; margin-top:-12px;" src="{% static 'images/defaulteprofile.webp' %}" alt=""></a>
+                    </li>
                 {% else %}
                   <a class="nav-link text-success" href="/login">Login</a>
                  {% endif %}
@@ -410,11 +413,10 @@ https://templatemo.com/tm-551-stand-blog
         <div class="row">
           <div class="col-lg-12">
             <ul class="social-icons">
-              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
               <li><a href="#">Twitter</a></li>
-              <li><a href="#">Behance</a></li>
-              <li><a href="#">Linkedin</a></li>
-              <li><a href="#">Dribbble</a></li>
+              <li><a href="#">Telegram</a></li>
+              <li><a href="#">Whatsapp</a></li>
             </ul>
           </div>
           <div class="col-lg-12">
