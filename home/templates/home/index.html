@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
 
     <title>Stand CSS Blog by TemplateMo</title>
 
@@ -71,14 +72,22 @@ https://templatemo.com/tm-551-stand-blog
               <li class="nav-item">
                 {% if request.user.is_authenticated %}
                   <div class="d-flex">
-                  <a class="nav-link text-primary" href="" >{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                  {% if request.user.first_name %}
+                      <a class="nav-link text-primary" href="" >{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                  {% else %}
+                      <a class="nav-link text-primary" href="" >{{ request.user.username }}</a>
+                  {% endif %}
                   <a href="/logout"><span class="badge badge-danger mt-2">Logout</span></a>
                   </div>
                     <li class="nav-item">
-                        <a href=""><img style="height: 60px; width: 60px; margin-top:-12px;" src="{% static 'images/defaulteprofile.webp' %}" alt=""></a>
+                        <a href=""><img class="mr-1" style="height: 60px; width: 60px; margin-top:-12px;" src="{% static 'images/defaulteprofile.webp' %}" alt=""></a>
                     </li>
                 {% else %}
+                 <div class="d-flex">
                   <a class="nav-link text-success" href="/login">Login</a>
+                  <span class="mt-2">|</span>
+                  <a class="nav-link text-success" href="/register">Sign In</a>
+                 </div>
                  {% endif %}
               </li>
             </ul>
