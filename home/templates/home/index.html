@@ -77,16 +77,16 @@ https://templatemo.com/tm-551-stand-blog
                   {% else %}
                       <a class="nav-link text-primary" href="" >{{ request.user.username }}</a>
                   {% endif %}
-                  <a href="/logout"><span class="badge badge-danger mt-2">Logout</span></a>
+                  <a href="{% url 'account:logout' %}"><span class="badge badge-danger mt-2">Logout</span></a>
                   </div>
                     <li class="nav-item">
                         <a href=""><img class="mr-1" style="height: 60px; width: 60px; margin-top:-12px;" src="{% static 'images/defaulteprofile.webp' %}" alt=""></a>
                     </li>
                 {% else %}
                  <div class="d-flex">
-                  <a class="nav-link text-success" href="/login">Login</a>
+                  <a class="nav-link text-success" href="{% url 'account:login' %}">Login</a>
                   <span class="mt-2">|</span>
-                  <a class="nav-link text-success" href="/register">Sign In</a>
+                  <a class="nav-link text-success" href="{% url 'account:register' %}">Sign In</a>
                  </div>
                  {% endif %}
               </li>
