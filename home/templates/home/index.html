@@ -80,7 +80,11 @@ https://templatemo.com/tm-551-stand-blog
                   <a href="{% url 'account:logout' %}"><span class="badge badge-danger mt-2">Logout</span></a>
                   </div>
                     <li class="nav-item">
+                    {% if user.profile.image %}
+                        <a href=""><img src="{{ user.profile.image.url }}" width="55px" height="55px" style="border-radius: 100%; margin-top: -10px" alt=""></a>
+                    {% else %}
                         <a href=""><img class="mr-1" style="height: 60px; width: 60px; margin-top:-12px;" src="{% static 'images/defaulteprofile.webp' %}" alt=""></a>
+                    {% endif %}
                     </li>
                 {% else %}
                  <div class="d-flex">
