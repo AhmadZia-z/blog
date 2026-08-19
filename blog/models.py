@@ -1,9 +1,6 @@
-from time import timezone
-
 from django.db import models
 from django.contrib.auth.models import User
-from django.forms import DateTimeInput
-from django.utils import  timezone
+from django.urls import reverse
 
 
 class Caregory(models.Model):
@@ -19,11 +16,14 @@ class Article(models.Model):
     category = models.ManyToManyField(Caregory)
     title = models.CharField(max_length=70)
     body = models.TextField()
-    image =  models.ImageField(upload_to='images/articles')
+    image = models.ImageField(upload_to='images/articles')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    status = models.BooleanField(default=True)
+    published = models.BooleanField(default=True)
 
-
+    def get_absolut_url(self):
+        return reverse('blog:article_detail', args=[self.id])
 
 
     def __str__(self):
