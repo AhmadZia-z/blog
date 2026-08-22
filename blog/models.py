@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.text import slugify
 
 
 class Caregory(models.Model):
@@ -21,10 +22,23 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
     published = models.BooleanField(default=True)
+    slug = models.SlugField(blank=True, unique=True)
+
+
+    class Meta:
+        ordering = ('-created',)
+
+
+
+    def save( self, force_insert = False, force_update = False, using = None,
+            update_fields = None):
+        self.slug = slugify(self.title)
+        super(Article, self).save()
+
+
 
     def get_absolut_url(self):
-        return reverse('blog:article_detail', args=[self.id])
-
+        return reverse('blog:article_detail', args=[self.slug])
 
     def __str__(self):
         return f'{self.title} - {self.body[:30]}'

@@ -6,15 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fee7428b-e8ec-41c3-9b3e-45550d972b1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profiles/images/banner-item-03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/standblog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/standblog/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,8 @@
       <workItem from="1787074185283" duration="602000" />
       <workItem from="1787079078784" duration="3880000" />
       <workItem from="1787124037371" duration="3023000" />
-      <workItem from="1787130324601" duration="871000" />
+      <workItem from="1787130324601" duration="3298000" />
+      <workItem from="1787391361236" duration="3768000" />
     </task>
     <servers />
   </component>
