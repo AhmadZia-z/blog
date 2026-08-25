@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fee7428b-e8ec-41c3-9b3e-45550d972b1e" name="Changes" comment="">
+    <list default="true" id="fee7428b-e8ec-41c3-9b3e-45550d972b1e" name="Changes" comment="add category_detail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/article_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/articles_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context_processors/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/context_processors/context_processors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/articles/banner-item-06.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profiles/images/banner-item-04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/standblog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/standblog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,8 +148,17 @@
       <workItem from="1787547019215" duration="2817000" />
       <workItem from="1787564712850" duration="1222000" />
       <workItem from="1787570855178" duration="2541000" />
-      <workItem from="1787647859979" duration="1246000" />
+      <workItem from="1787647859979" duration="4015000" />
     </task>
+    <task id="LOCAL-00001" summary="add category_detail">
+      <option name="closed" value="true" />
+      <created>1787649416863</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1787649416864</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,5 +174,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add category_detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="add category_detail" />
   </component>
 </project>
