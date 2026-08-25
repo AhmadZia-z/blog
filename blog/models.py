@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
-class Caregory(models.Model):
+class Category(models.Model):
     title = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -14,10 +14,11 @@ class Caregory(models.Model):
 
 class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ManyToManyField(Caregory)
+    category = models.ManyToManyField(Category, related_name='articles')
     title = models.CharField(max_length=70)
     body = models.TextField()
     image = models.ImageField(upload_to='images/articles')
+    banner = models.ImageField(upload_to='images/banners', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)

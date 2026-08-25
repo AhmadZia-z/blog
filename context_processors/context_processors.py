@@ -1,4 +1,4 @@
-from blog.models import Article, Caregory
+from blog.models import Article, Category
 
 
 
@@ -9,5 +9,5 @@ def recent_articles(request):
 
 
 def category(request):
-    category = Caregory.objects.all()
+    category = Category.objects.all()
     return {'category' : category}

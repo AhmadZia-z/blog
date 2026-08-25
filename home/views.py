@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Article, Caregory
+from blog.models import Article, Category
 from django.urls import reverse
 
 
