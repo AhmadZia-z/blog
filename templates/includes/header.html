@@ -41,17 +41,18 @@
                             <li class="nav-item">
                                 {% if user.profile.image %}
                                     <a href=""><img src="{{ user.profile.image.url }}" width="58px" height="58px"
-                                                    style="border-radius: 100%; margin-top: -10px; object-fit: cover;" alt=""></a>
+                                                    style="border-radius: 100%; margin-top: -10px; object-fit: cover;"
+                                                    alt=""></a>
                                 {% else %}
                                     <a href=""><img class="mr-1" style="height: 60px; width: 60px; margin-top:-12px;"
-                                                    src="{% static 'images/defaulteprofile.webp' %}" alt=""></a>
+                                                    src="{% static 'images/default_profile.webp' %}" alt=""></a>
                                 {% endif %}
                             </li>
                         {% else %}
                             <div class="d-flex">
                                 <a class="nav-link text-success" href="{% url 'account:login' %}">Login</a>
                                 <span class="mt-2">|</span>
-                                <a class="nav-link text-success" href="{% url 'account:register' %}">Sign In</a>
+                                <a class="nav-link text-success" href="{% url 'account:register' %}">Sign Up</a>
                             </div>
                         {% endif %}
                     </li>
