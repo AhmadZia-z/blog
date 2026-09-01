@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from .forms import LoginForm
+from .forms import LoginForm, UserEditForm
 
 
 
@@ -41,6 +41,20 @@ def user_register(request):
         return render(request, 'account/register.html', context)
         return redirect('/')
     return render(request, 'account/register.html', {})
+
+
+
+def user_edit(request):
+    user= request.user
+    form = UserEditForm(instance=user)
+    if request.method == 'POST':
+        form = UserEditForm(instance=user, data=request.POST)
+        if form.is_valid():
+            form.save()
+
+
+    return render(request, 'account/edit.html', {'form':form})
+
 
 
 def user_logout(request):

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.forms import ValidationError
+from django.contrib.auth.models import User
 
 
 class LoginForm(forms.Form):
@@ -14,3 +15,10 @@ class LoginForm(forms.Form):
             return self.cleaned_data.get('password')
         else:
             raise ValidationError('Username or Password are wrong', code='invalid_info')
+
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
