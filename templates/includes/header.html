@@ -25,37 +25,38 @@
                         <a class="nav-link" href="post-details.html">Post Details</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'contact_us' %} active {% endif %}"
+                           href="{% url 'blog:contact_us' %}">Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        {% if request.user.is_authenticated %}
-                            <div class="d-flex">
-                                {% if request.user.first_name %}
-                                    <a class="nav-link text-primary"
-                                       href="">{{ request.user.get_full_name }}</a>
-                                {% else %}
-                                    <a class="nav-link text-primary" href="">{{ request.user.username }}</a>
-                                {% endif %}
-                                <a href="{% url 'account:logout' %}"><span class="badge badge-danger mt-2">Logout</span></a>
-                            </div>
-                            <li class="nav-item">
-                                {% if user.profile.image %}
-                                    <a href=""><img src="{{ user.profile.image.url }}" width="58px" height="58px"
-                                                    style="border-radius: 100%; margin-top: -10px; object-fit: cover;"
-                                                    alt=""></a>
-                                {% else %}
-                                    <a href=""><img class="mr-1" style="height: 60px; width: 60px; margin-top:-12px;"
-                                                    src="{% static 'images/default_profile.webp' %}" alt=""></a>
-                                {% endif %}
+
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.first_name %}
+                            <li class="nav-item"><a class="nav-link text-primary"
+                                                    href="">{{ request.user.get_full_name }}</a>
                             </li>
                         {% else %}
-                            <div class="d-flex">
-                                <a class="nav-link text-success" href="{% url 'account:login' %}">Login</a>
-                                <span class="mt-2">|</span>
-                                <a class="nav-link text-success" href="{% url 'account:register' %}">Sign Up</a>
-                            </div>
+                            <a class="nav-link text-primary" href="">{{ request.user.username }}</a>
                         {% endif %}
-                    </li>
+                        <a href="{% url 'account:logout' %}"><span class="badge badge-danger mt-2">Logout</span></a>
+                        {% if user.profile.image %}
+                            <li class="nav-item"><a href=""><img src="{{ user.profile.image.url }}" width="58px"
+                                                                 height="58px"
+                                                                 style="border-radius: 100%; margin-top: -10px; object-fit: cover;"
+                                                                 alt=""></a></li>
+                        {% else %}
+                            <li class="nav-item"><a href=""><img class="mr-1"
+                                                                 style="height: 60px; width: 60px; margin-top:-12px;"
+                                                                 src="{% static 'images/default_profile.webp' %}"
+                                                                 alt=""></a></li>
+                        {% endif %}
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link text-success" href="{% url 'account:login' %}">Login</a>
+                        </li>
+                        <span class="mt-2">|</span>
+                        <li class="nav-item"><a class="nav-link text-success" href="{% url 'account:register' %}">Sign
+                            Up</a></li>
+                    {% endif %}
+
                 </ul>
             </div>
         </div>

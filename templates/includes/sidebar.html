@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="sidebar-item search">
                     <form id="search_form" name="gs" method="GET" action="{% url 'blog:search_articles' %}">
-                        <input type="text" name="q" class="searchText" placeholder="type to search..."
+                        <input value="{{ request.GET.q }}" type="text" name="q" style="border: 1px solid gray; border-radius: 15px; padding: 8px 15px" class="searchText btn" placeholder="type to search..."
                                autocomplete="on">
                     </form>
                 </div>

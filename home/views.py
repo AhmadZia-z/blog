@@ -4,5 +4,5 @@ from django.urls import reverse
 
 
 def home(request):
-    articles = Article.objects.all()
+    articles = Article.objects.order_by('?')[:4]
     return render(request, 'home/index.html',{'articles' : articles})

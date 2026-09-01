@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import Article, Category, Comment
+from django.shortcuts import render, get_object_or_404, redirect
+from blog.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator
+from .forms import ContactUsForm, MessageForm
 
 
 def article_detail(request, slug):
@@ -36,3 +37,23 @@ def search(request):
     paginator = Paginator(articles, 1)
     objects_list = paginator.get_page(page_number)
     return render(request, 'blog/articles_list.html', {'articles':objects_list})
+
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = MessageForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MessageForm()
+    return render(request, 'blog/contact_us.html', {'form':form})
+
+
+
+
+
+
+
+
+
