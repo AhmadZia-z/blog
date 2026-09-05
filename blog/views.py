@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from blog.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator
 from .forms import ContactUsForm, MessageForm
+from django.views.generic.base import View
 
 
 def article_detail(request, slug):
@@ -52,7 +53,17 @@ def contact_us(request):
 
 
 
+class ListView(View):
+    queryset = None
+    template_name = None
 
+    def get(self, request):
+        return render(request, self.template_name, {'articles':self.queryset})
+
+
+class ArticleList(ListView):
+    queryset = Article.objects.all()
+    template_name = 'blog/articles_list.html'
 
 
 
