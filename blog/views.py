@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from blog.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator
 from .forms import ContactUsForm, MessageForm
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView, RedirectView
+from django.views.generic import ListView, DetailView
 
 
 def article_detail(request, slug):
@@ -11,7 +12,7 @@ def article_detail(request, slug):
         parent_id = request.POST.get('parent_id')
         body = request.POST.get('body')
         Comment.objects.create(body=body, article=article, user=request.user, parent_id=parent_id)
-    return render(request, 'blog/article_details.html', {'article': article})
+    return render(request, 'blog/article_detail.html', {'article': article})
 
 
 
@@ -20,14 +21,14 @@ def articles_list(request):
     page_number = request.GET.get('page')
     paginator = Paginator(articles, 2)
     objects_list = paginator.get_page(page_number)
-    return render(request, 'blog/articles_list.html', {'articles' : objects_list})
+    return render(request, 'blog/article_list.html', {'articles' : objects_list})
 
 
 
 def category_detail(request, pk=None):
     category = get_object_or_404(Category, id=pk)
     articles = category.articles.all()
-    return render(request, 'blog/articles_list.html', {'articles' : articles})
+    return render(request, 'blog/article_list.html', {'articles' : articles})
 
 
 
@@ -37,7 +38,7 @@ def search(request):
     page_number = request.GET.get('page')
     paginator = Paginator(articles, 1)
     objects_list = paginator.get_page(page_number)
-    return render(request, 'blog/articles_list.html', {'articles':objects_list})
+    return render(request, 'blog/article_list.html', {'articles':objects_list})
 
 
 
@@ -53,17 +54,33 @@ def contact_us(request):
 
 
 
-class ListView(View):
-    queryset = None
-    template_name = None
+class ArticleList(TemplateView):
+    template_name = 'blog/article_list2.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = Article.objects.all()
+        return context
 
-    def get(self, request):
-        return render(request, self.template_name, {'articles':self.queryset})
 
 
-class ArticleList(ListView):
-    queryset = Article.objects.all()
-    template_name = 'blog/articles_list.html'
+class HomePageRedirect(RedirectView):
+    # url = '/articles/list'
+    pattern_name = 'blog:articles_list'
+    permanent = False
+    query_string = True
+
+
+
+class ArticleDetailView(DetailView):
+    model = Article
+
+
+
+class ArticleListView(ListView):
+    model = Article
+    context_object_name = 'articles'
+    paginate_by = 2
+    queryset = Article.objects.filter(published=True)
 
 
 
