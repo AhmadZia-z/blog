@@ -31,12 +31,20 @@ class MessageForm(forms.ModelForm):
         model = Message
         fields = '__all__'
         widgets = {
-            'title': forms.TextInput(attrs={
+            'name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'enter your title'
+                'placeholder': 'enter your name'
             }),
             'text': forms.Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'enter your message'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'enter your email'
+            }),
+            'age': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'enter your age'
             })
         }

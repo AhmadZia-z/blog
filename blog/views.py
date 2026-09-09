@@ -3,7 +3,8 @@ from blog.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator
 from .forms import ContactUsForm, MessageForm
 from django.views.generic.base import View, TemplateView, RedirectView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView, CreateView , UpdateView, DeleteView
+from django.urls import reverse, reverse_lazy
 
 
 def article_detail(request, slug):
@@ -71,16 +72,55 @@ class HomePageRedirect(RedirectView):
 
 
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(DetailView):          #def article_detail
     model = Article
 
 
 
-class ArticleListView(ListView):
+class ArticleListView(ListView):             #def article_list
     model = Article
     context_object_name = 'articles'
     paginate_by = 2
     queryset = Article.objects.filter(published=True)
+
+
+
+class ContactUsView(FormView):                 #def contact_us
+    template_name = 'blog/contact_us.html'
+    form_class = MessageForm
+    success_url = reverse_lazy('home:main')
+
+    def form_valid(self, form):
+        form_data = form.cleaned_data
+        Message.objects.create(**form_data)
+        return super().form_valid(form)
+
+
+
+class MessageView(CreateView):              #def contact_us
+    model = Message
+    fields = '__all__'
+    success_url = reverse_lazy('home:main')
+    template_name = 'blog/contact_us.html'
+
+
+
+class MessageUpdateView(UpdateView):
+    model = Message
+    fields = ('title', 'text', 'age')
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('home:main')
+
+
+
+class MessageDeleteView(DeleteView):
+    model = Message
+    success_url = reverse_lazy('home:main')
+
+
+
+
+
 
 
 

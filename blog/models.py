@@ -63,7 +63,7 @@ class Comment(models.Model):
 
 
 class Message(models.Model):
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=50, default=None)
     text = models.TextField()
     email = models.EmailField()
     age = models.IntegerField(default=0)
@@ -71,6 +71,6 @@ class Message(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return self.text[:30]
 
 
