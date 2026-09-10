@@ -3,8 +3,10 @@ from blog.models import Article, Category, Comment, Message
 from django.core.paginator import Paginator
 from .forms import ContactUsForm, MessageForm
 from django.views.generic.base import View, TemplateView, RedirectView
-from django.views.generic import ListView, DetailView, FormView, CreateView , UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, FormView, CreateView , UpdateView, DeleteView, ArchiveIndexView
 from django.urls import reverse, reverse_lazy
+# from django.contrib.auth.mixins import LoginRequiredMixin
+from .mixins import LoginRequiredMixin
 
 
 def article_detail(request, slug):
@@ -77,7 +79,7 @@ class ArticleDetailView(DetailView):          #def article_detail
 
 
 
-class ArticleListView(ListView):             #def article_list
+class ArticleListView(LoginRequiredMixin,ListView):             #def article_list
     model = Article
     context_object_name = 'articles'
     paginate_by = 2
@@ -116,6 +118,12 @@ class MessageUpdateView(UpdateView):
 class MessageDeleteView(DeleteView):
     model = Message
     success_url = reverse_lazy('home:main')
+
+
+
+class ArchiveIndexArticleView(ArchiveIndexView):
+    model = Article
+    date_field = 'updated'
 
 
 

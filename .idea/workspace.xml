@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fee7428b-e8ec-41c3-9b3e-45550d972b1e" name="Changes" comment="add category_detail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/standblog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/standblog/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -59,7 +59,8 @@
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;K:/Python-Dj/standblog/blog/templates/blog&quot;,
+    &quot;last_opened_file_path&quot;: &quot;K:/Python-Dj/standblog/static/fonts&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -70,11 +71,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="K:\Python-Dj\standblog\static\fonts" />
+      <recent name="K:\Python-Dj\standblog\standblog\admin" />
       <recent name="K:\Python-Dj\standblog\blog\templates\blog" />
       <recent name="K:\Python-Dj\standblog\static\images" />
       <recent name="K:\Python-Dj\standblog\static\vendor" />
-      <recent name="K:\Python-Dj\standblog\static" />
-      <recent name="K:\Python-Dj\standblog\static\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="K:\Python-Dj\standblog\templates\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -168,7 +172,9 @@
       <workItem from="1788784036158" duration="2234000" />
       <workItem from="1788791756942" duration="1593000" />
       <workItem from="1788854875576" duration="3390000" />
-      <workItem from="1788938655385" duration="1001000" />
+      <workItem from="1788938655385" duration="3698000" />
+      <workItem from="1788969483794" duration="3351000" />
+      <workItem from="1789049133914" duration="712000" />
     </task>
     <task id="LOCAL-00001" summary="add category_detail">
       <option name="closed" value="true" />

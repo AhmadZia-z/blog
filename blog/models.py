@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -24,6 +25,7 @@ class Article(models.Model):
     status = models.BooleanField(default=True)
     published = models.BooleanField(default=True)
     slug = models.SlugField(blank=True, unique=True)
+    pub_date = models.DateTimeField(default=timezone.now())
 
 
     def save( self, force_insert = False, force_update = False, using = None,
