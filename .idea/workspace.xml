@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fee7428b-e8ec-41c3-9b3e-45550d972b1e" name="Changes" comment="add category_detail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/article_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/article_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +177,10 @@
       <workItem from="1788938655385" duration="3698000" />
       <workItem from="1788969483794" duration="3351000" />
       <workItem from="1789049133914" duration="4557000" />
-      <workItem from="1789197796893" duration="4193000" />
+      <workItem from="1789197796893" duration="6972000" />
+      <workItem from="1789234911885" duration="1414000" />
+      <workItem from="1789286250418" duration="6125000" />
+      <workItem from="1789320510619" duration="1935000" />
     </task>
     <task id="LOCAL-00001" summary="add category_detail">
       <option name="closed" value="true" />

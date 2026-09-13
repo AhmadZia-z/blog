@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.html import format_html
 from django.utils.text import slugify
 from django.utils import timezone
 
@@ -42,8 +43,14 @@ class Article(models.Model):
         return reverse('blog:article_detail', args=[self.slug])
 
     def __str__(self):
-        return f'{self.title} - {self.body[:30]}'
+        return f'{self.title}'
 
+    def show_image(self):
+        if self.image:
+            return format_html('<img src="{}" width="40px" height="40px" style="object-fit: cover; border-radius: 18%">', self.image.url)
+        else:
+            return format_html('<h3 style="color: red">تصویر ندارد</h3>')
+    show_image.short_description = 'تصویر'
 
     class Mets:
         ordering = ('-created',)
@@ -86,4 +93,19 @@ class Message(models.Model):
     class Meta:
         verbose_name = 'پیام'
         verbose_name_plural = 'پیام ها'
+
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes', verbose_name='کاربر')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='likes', verbose_name='مقاله')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username} - {self.article.title}'
+
+    class Meta:
+        verbose_name = 'لایک'
+        verbose_name_plural = 'لایک ها'
+        ordering = ('-created_at',)
 

@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
-from blog.models import Article, Category, Comment, Message
+from blog.models import Article, Category, Comment, Message, Like
 from django.core.paginator import Paginator
 from .forms import ContactUsForm, MessageForm
 from django.views.generic.base import View, TemplateView, RedirectView
 from django.views.generic import ListView, DetailView, FormView, CreateView , UpdateView, DeleteView, ArchiveIndexView
 from django.urls import reverse, reverse_lazy
-# from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import LoginRequiredMixin
 
 
@@ -74,9 +74,17 @@ class HomePageRedirect(RedirectView):
 
 
 
-class ArticleDetailView(DetailView):          #def article_detail
+class ArticleDetailView(LoginRequiredMixin, DetailView):          #def article_detail
     model = Article
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        if self.request.user.likes.filter(article__slug=self.object.slug, user_id=self.request.user.id).exists():
+            context['is_liked'] = True
+        else:
+            context['is_liked'] = False
+        return context
 
 
 class ArticleListView(LoginRequiredMixin,ListView):             #def article_list
@@ -127,6 +135,15 @@ class ArchiveIndexArticleView(ArchiveIndexView):
 
 
 
+def like(request, slug, pk):
+    if request.user.is_authenticated:
+        try:
+            like = Like.objects.get(article__slug=slug, user_id=request.user.id)
+            like.delete()
+        except:
+            Like.objects.create(article_id=pk, user_id=request.user.id)
+
+    return redirect('blog:article_detail', slug)
 
 
 

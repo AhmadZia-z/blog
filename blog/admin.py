@@ -18,12 +18,16 @@ class FilterByTitle(admin.SimpleListFilter):
             return queryset.filter(title__icontains=self.value())
 
 
+class CommentInline(admin.TabularInline):
+    model = models.Comment
+
 
 @admin.register(models.Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'status')
+    list_display = ('title', 'author', 'status', 'show_image')
     list_filter = ('status', 'published', FilterByTitle)
     search_fields = ['title', 'body']
+    inlines = (CommentInline,)
     # fields = ['']
 
 
@@ -31,13 +35,18 @@ class ArticleAdmin(admin.ModelAdmin):
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'created']
-    list_filter = ['created']
 
 
 @admin.register(models.Message)
 class MessageAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'age']
     list_filter = ['created_at']
+
+
+@admin.register(models.Like)
+class LikeAdmin(admin.ModelAdmin):
+    list_display = ['user', 'article']
+    list_filter = ['article']
 
 
 
