@@ -49,5 +49,7 @@ class LikeAdmin(admin.ModelAdmin):
     list_filter = ['article']
 
 
-
-admin.site.register(models.Comment)
+@admin.register(models.Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'article', 'show_parent']
+    list_filter = ['created_at', 'article']

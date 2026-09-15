@@ -62,14 +62,20 @@
                                                 <div class="col-6">
                                                     <ul class="post-tags">
                                                         {% if is_liked %}
-                                                            <li><a href="{% url 'blog:like' article.slug article.id %}"><i
+                                                            <li>
+                                                                <a onclick="like('{{ article.slug }}', '{{ article.id }}')"
+                                                                ><i id="like"
                                                                     style="font-size: 22px"
-                                                                    class="fa fa-heart"></i></a>{{ article.likes.all.count }}
+                                                                    class="fa fa-heart"></i></a><span
+                                                                    id="count">{{ article.likes.all.count }}</span>
                                                             </li>
                                                         {% else %}
-                                                            <li><a href="{% url 'blog:like' article.slug article.id %}"><i
+                                                            <li>
+                                                                <a onclick="like('{{ article.slug }}', '{{ article.id }}')"
+                                                                ><i id="like"
                                                                     style="font-size: 22px"
-                                                                    class="fa fa-heart-o"></i></a>{{ article.likes.all.count }}
+                                                                    class="fa fa-heart-o"></i></a><span
+                                                                    id="count">{{ article.likes.all.count }}</span>
                                                             </li>
                                                         {% endif %}
 
@@ -91,7 +97,7 @@
                             <div class="col-lg-12">
                                 <div class="sidebar-item comments">
                                     <div class="sidebar-heading">
-                                        <h2>4 comments</h2>
+                                        <h2>{{ article.comments.all.count }} Comments</h2>
                                     </div>
                                     <div class="content">
                                         <ul>

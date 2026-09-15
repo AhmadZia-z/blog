@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.utils import timezone
 
@@ -72,6 +73,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body[:50]
+
+    def show_parent(self):
+        if self.parent:
+            return format_html('<h3>{}</h3>', self.parent)
+        else:
+            return mark_safe('<h3 style="color: green">نظر مستقل</h3>')
+    show_parent.short_description = 'نظر والد'
 
     class Meta:
         verbose_name = 'نظر'

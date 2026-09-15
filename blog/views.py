@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from blog.models import Article, Category, Comment, Message, Like
 from django.core.paginator import Paginator
@@ -15,7 +16,11 @@ def article_detail(request, slug):
         parent_id = request.POST.get('parent_id')
         body = request.POST.get('body')
         Comment.objects.create(body=body, article=article, user=request.user, parent_id=parent_id)
-    return render(request, 'blog/article_detail.html', {'article': article})
+    if request.user.likes.filter(article__slug=slug, user_id=request.user.id).exists():
+        is_liked = True
+    else:
+        is_liked = False
+    return render(request, 'blog/article_detail.html', {'article': article, 'is_liked': is_liked})
 
 
 
@@ -140,10 +145,14 @@ def like(request, slug, pk):
         try:
             like = Like.objects.get(article__slug=slug, user_id=request.user.id)
             like.delete()
+            return JsonResponse({'response': 'unliked'})
         except:
             Like.objects.create(article_id=pk, user_id=request.user.id)
+            return JsonResponse({'response':'liked'})
 
-    return redirect('blog:article_detail', slug)
+
+
+
 
 
 

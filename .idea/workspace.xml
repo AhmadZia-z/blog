@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/footer_references.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/footer_references.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,7 @@
         <option value="HTML File" />
         <option value="Python Script" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -180,7 +182,10 @@
       <workItem from="1789197796893" duration="6972000" />
       <workItem from="1789234911885" duration="1414000" />
       <workItem from="1789286250418" duration="6125000" />
-      <workItem from="1789320510619" duration="1935000" />
+      <workItem from="1789320510619" duration="5657000" />
+      <workItem from="1789374500043" duration="5488000" />
+      <workItem from="1789389324305" duration="1295000" />
+      <workItem from="1789390969371" duration="3678000" />
     </task>
     <task id="LOCAL-00001" summary="add category_detail">
       <option name="closed" value="true" />
